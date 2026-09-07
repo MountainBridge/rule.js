@@ -1,20 +1,52 @@
-# Rule.js [![status][badge-url]][ci-url]
-Build serializable conditions / business rules.
+# Rule.js — Business Rules Engine
 
-This repository is used to host multiple projects:
-- [@rule.js/core](packages/core): This is the core library handling building
-and running a condition.
-- [@rule.js/elasticsearch](packages/elasticsearch): Convert your rule into an
-elasticsearch query.
-- [@rule.js/knex](packages/knex): Use rule.js conditions with KnexJs!
-- [@rule.js/contextualize](packages/contextualize): Replace certain keys
-in your conditions with data.
-- [@rule.js/access-mate](packages/access-mate): Attribute-based access control
-using rule.js conditions.
-- [@rule.js/constraint](packages/constraint): Data constraints module
-leveraging the core library.
-- [@rule.js/expression](packages/expression): A simple language for expressing
-business rules.
+> A historical JavaScript rules-engine repository with unusually strong potential as an engineering case study: serializable conditions, contextual data, query translation and access-control rules.
 
-[badge-url]: https://travis-ci.org/AGhost-7/o-is.svg?branch=master
-[ci-url]: https://travis-ci.org/AGhost-7/o-is
+## 30-second read
+
+The core problem is separating **business policy from application control flow** so rules can be represented, composed, serialized and evaluated consistently.
+
+## Modules
+
+- `@rule.js/core` — build and run conditions
+- `@rule.js/elasticsearch` — translate rules into Elasticsearch queries
+- `@rule.js/knex` — integrate conditions with Knex
+- `@rule.js/contextualize` — substitute runtime context into conditions
+- `@rule.js/access-mate` — attribute-based access control
+- `@rule.js/constraint` — data constraints
+- `@rule.js/expression` — business-rule expression language
+
+## Run online
+
+**[Open in StackBlitz](https://stackblitz.com/github/MountainBridge/rule.js)** — browser workspace for exploring the JavaScript packages.
+
+**[Open in GitHub Codespaces](https://codespaces.new/MountainBridge/rule.js)** — recommended when working across the package workspace.
+
+For isolated JavaScript experiments, use **[OneCompiler](https://onecompiler.com/javascript)**.
+
+## Engineering questions
+
+```text
+Business policy
+      ↓
+Serializable rule
+      ↓
+Contextualization
+      ↓
+Evaluation / query translation
+      ↓
+Application decision
+```
+
+Key questions:
+
+- How do we validate a rule before execution?
+- How do we version serialized rules?
+- Can a rule be translated consistently across storage/query engines?
+- How do we prevent authorization rules from becoming ambiguous?
+- What happens when context data is missing?
+- How do we test rule equivalence during a migration?
+
+## Modernization direction
+
+This is a stronger candidate for deeper modernization than the tiny game repositories. The next step is deterministic fixtures, property-style tests, rule snapshots, failure cases and CI evidence around rule evaluation.
