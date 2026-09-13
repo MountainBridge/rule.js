@@ -1,20 +1,29 @@
-# Rule.js [![status][badge-url]][ci-url]
-Build serializable conditions / business rules.
+# Rule.js — Serializable Business Rules
 
-This repository is used to host multiple projects:
-- [@rule.js/core](packages/core): This is the core library handling building
-and running a condition.
-- [@rule.js/elasticsearch](packages/elasticsearch): Convert your rule into an
-elasticsearch query.
-- [@rule.js/knex](packages/knex): Use rule.js conditions with KnexJs!
-- [@rule.js/contextualize](packages/contextualize): Replace certain keys
-in your conditions with data.
-- [@rule.js/access-mate](packages/access-mate): Attribute-based access control
-using rule.js conditions.
-- [@rule.js/constraint](packages/constraint): Data constraints module
-leveraging the core library.
-- [@rule.js/expression](packages/expression): A simple language for expressing
-business rules.
+A modular exploration of **serializable conditions and business-rule evaluation**.
 
-[badge-url]: https://travis-ci.org/AGhost-7/o-is.svg?branch=master
-[ci-url]: https://travis-ci.org/AGhost-7/o-is
+## The engineering problem
+
+Business rules change independently of application code. A useful rule engine needs to make those rules explicit, composable, serializable and executable—while keeping the boundary between business intent and implementation understandable.
+
+## Modules
+
+- `@rule.js/core` — build and evaluate conditions
+- `@rule.js/elasticsearch` — translate rules into Elasticsearch queries
+- `@rule.js/knex` — use conditions with Knex
+- `@rule.js/contextualize` — resolve rule keys from runtime data
+- `@rule.js/access-mate` — attribute-based access control
+- `@rule.js/constraint` — data constraints
+- `@rule.js/expression` — express business rules in a compact language
+
+## What to study
+
+**rule definition → serialization → contextualization → execution → downstream representation**
+
+The interesting engineering questions are around correctness, portability, evaluation boundaries and how rule changes affect consumers.
+
+## Portfolio positioning
+
+This is a reusable engineering building block rather than a polished product. It complements the MountainBridge case studies around configurable workflows, business rules and platform design.
+
+When extending it, document the decision and failure modes—not only the API surface.
